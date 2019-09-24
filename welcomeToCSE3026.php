@@ -15,7 +15,7 @@
 			Hello,
 			<strong>
 				<?php
-					$name = $_GET["junseop"];
+					$name = $_GET["name"];
 					print "$name!";
 				?>
 			</strong>
