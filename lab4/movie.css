@@ -1,0 +1,135 @@
+body {
+  background-image: url("background.png");
+  font-size: 8pt;
+  font-family: Verdana, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#banner {
+  display: block;
+  background-image: url("bannerbg.png");
+  background-repeat: repeat-x;
+  height: 50px;
+}
+
+#banner img {
+  height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header *{
+  display: block;
+  font-size: 24pt;
+  font-weight: bold;
+  font-family: Tahoma, Verdana, sans-serif;
+  text-shadow: 3px 3px #999999;
+  text-align: center;
+}
+
+main {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 4px gray solid;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+article {
+  width: 550px;
+}
+
+section#top {
+  height: 83px;
+  background-image: url(rbg.png);
+  background-repeat: repeat-x;
+  font-size: 48pt;
+  font-weight: bold;
+  color: red;
+}
+
+section#top img {
+  height: 83px;
+  vertical-align: bottom;
+}
+
+section.columns {
+  width: 47%;
+  float: left;
+  margin-left: 2%;
+}
+
+section.columns img {
+  float: left;
+  padding-right: 5px;
+}
+
+section.columns .quote:nth-child(n+1) {
+  margin-top: 20px;
+}
+
+.quote {
+  font-size: 8pt;
+  font-weight: bold;
+  background-color: #E8DC9B;
+  border: 2px solid gray;
+  border-radius: 10px;
+  padding: 8px;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.reviewer {
+  overflow: hidden;
+}
+
+.affiliation {
+  font-style: italic;
+}
+
+aside {
+  width: 250px;
+  background-color: #A2B964;
+  float: right;
+  padding-bottom: 0;
+}
+
+#poster {
+  float: right;
+  overflow: hidden;
+}
+
+#information {
+  font-size: 8pt;
+  font-family: Arial, sans-serif;
+  padding-left: 10pt;
+  padding-right: 10pt;
+  clear: right;
+}
+
+#information dt {
+  font-weight: bold;
+  padding-top: 10pt;
+}
+
+#information dd ul {
+  list-style: none;
+  padding: 0px;
+}
+
+footer{
+  background-color: #A2B964;
+  clear: both;
+  text-align: center;
+  padding: 5px;
+}
+
+#validator {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  opacity: 0.5;
+}
