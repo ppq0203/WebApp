@@ -129,7 +129,7 @@ footer{
 
 #validator {
   position: fixed;
-  right: 10px;
-  bottom: 10px;
+  right: 0;
+  bottom: 0;
   opacity: 0.5;
 }
