@@ -67,11 +67,7 @@ section.columns img {
   padding-right: 5px;
 }
 
-section.columns .quote:nth-child(n+1) {
-  margin-top: 20px;
-}
-
-.quote {
+.review p:first-child {
   font-size: 8pt;
   font-weight: bold;
   background-color: #E8DC9B;
@@ -82,8 +78,9 @@ section.columns .quote:nth-child(n+1) {
   white-space: normal;
 }
 
-.reviewer {
-  overflow: hidden;
+.review p:last-child {
+    overflow: hidden;
+    margin-bottom: 20pt;
 }
 
 .affiliation {
@@ -94,37 +91,36 @@ aside {
   width: 250px;
   background-color: #A2B964;
   float: right;
-  padding-bottom: 0;
+  padding: 0;
 }
 
-#poster {
-  float: right;
-  overflow: hidden;
-}
+
 
 #information {
   font-size: 8pt;
   font-family: Arial, sans-serif;
-  padding-left: 10pt;
-  padding-right: 10pt;
+  padding: 0;
+  margin: 10pt;
   clear: right;
 }
 
 #information dt {
   font-weight: bold;
-  padding-top: 10pt;
+  margin-top: 10pt;
 }
 
 #information dd ul {
   list-style: none;
-  padding: 0px;
+  padding: 0;
+  margin: 0;
 }
 
-footer{
+footer *{
   background-color: #A2B964;
   clear: both;
   text-align: center;
   padding: 5px;
+  margin: 0;
 }
 
 #validator {
