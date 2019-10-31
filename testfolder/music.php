@@ -12,23 +12,22 @@
 		<h1>My Music Page</h1>
 		
 		<!-- Ex 1: Number of Songs (Variables) -->
+		<?php $songs = 5678; $hours = (int)($songs/10); ?>
 		<p>
 			I love music.
-			I have 1234 total songs,
-			which is over 123 hours of music!
+			I have  <?php echo $songs ;?> total songs,
+			which is over <?php echo $hours ;?> hours of music!
 		</p>
 
 		<!-- Ex 2: Top Music News (Loops) -->
 		<!-- Ex 3: Query Variable -->
 		<div class="section">
 			<h2>Billboard News</h2>
-		
+			<?php $newspages = 4; ?>
 			<ol>
-			    <li><a href="https://www.billboard.com/archive/article/201910">2019-11</a></li>
-				<li><a href="https://www.billboard.com/archive/article/201910">2019-10</a></li>
-				<li><a href="https://www.billboard.com/archive/article/201909">2019-09</a></li>
-				<li><a href="https://www.billboard.com/archive/article/201908">2019-08</a></li>
-				<li><a href="https://www.billboard.com/archive/article/201907">2019-07</a></li>
+				<?php for ($i=11; $newspages>0; $i--, $newspages--){ ?>
+					<li><a href="https://www.billboard.com/archive/article/2019<?php echo sprintf("%02d", $i) ?>">2019-<?php echo sprintf("%02d", $i) ?></a></li>
+				<?php } ?>
 			</ol>
 		</div>
 
@@ -36,11 +35,11 @@
 		<!-- Ex 5: Favorite Artists from a File (Files) -->
 		<div class="section">
 			<h2>My Favorite Artists</h2>
-		
+			<?php $artists = array("Gun N's Roses","Green Day","Blink182","Queen"); ?>
 			<ol>
-				<li>Guns N' Roses</li>
-				<li>Green Day</li>
-				<li>Blink182</li>
+				<?php for($i = 0; $i < count($artists);$i++){ ?>
+					<li><?= $artists[$i] ?></li>
+				<?php } ?>
 			</ol>
 		</div>
 		
