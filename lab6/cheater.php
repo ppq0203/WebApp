@@ -12,43 +12,47 @@
 		# Check the existence of each parameter using the PHP function 'isset'.
 		# Check the blankness of an element in $_POST by comparing it to the empty string.
 		# (can also use the element itself as a Boolean test!)
-		# if (){
+		$checklist = array("name", "id", "course", "cardnum");
+		$iserr = false;
+		foreach ($checklist as $key) {
+			$iserr = ($iserr||$_POST[$key] == ""||!isset($_POST[$key]));
+		}
+
+		$cutname = explode(" ", $_POST["name"]);
+		print_r($cutname);
+
+		if ($iserr){
 		?>
 
-		<!-- Ex 4 :
-			Display the below error message :
 			<h1>Sorry</h1>
 			<p>You didn't fill out the form completely. Try again?</p>
-		-->
 
 		<?php
 		# Ex 5 :
 		# Check if the name is composed of alphabets, dash(-), ora single white space.
-		# } elseif () {
+		}
+
+		elseif (false) {
 		?>
 
-		<!-- Ex 5 :
-			Display the below error message :
 			<h1>Sorry</h1>
 			<p>You didn't provide a valid name. Try again?</p>
-		-->
 
 		<?php
 		# Ex 5 :
 		# Check if the credit card number is composed of exactly 16 digits.
 		# Check if the Visa card starts with 4 and MasterCard starts with 5.
-		# } elseif () {
+		}
+
+		elseif (!preg_match('/^[4|5][0-9]{15}$/', $_POST["cardnum"], $matches)) {
 		?>
 
-		<!-- Ex 5 :
-			Display the below error message :
 			<h1>Sorry</h1>
 			<p>You didn't provide a valid credit card number. Try again?</p>
-		-->
 
 		<?php
 		# if all the validation and check are passed
-		# } else {
+		} else {
 			$name = $_POST["name"];
 			$id = $_POST["id"];
 			$courses = implode(', ', $_POST['course']);
@@ -74,22 +78,22 @@
 
 		<p>Here are all the loosers who have submitted here:</p>
 		<?php
-			$filename = "loosers.txt";
-
+			$filename = "./loosers.txt";
+			$user = "$name;$id;$cardnum;$card\n";
+			file_put_contents($filename, $user, FILE_APPEND | LOCK_EX);
+			$users = file_get_contents($filename);
 			/* Ex 3:
 			 * Save the submitted data to the file 'loosers.txt' in the format of : "name;id;cardnumber;cardtype".
 			 * For example, "Scott Lee;20110115238;4300523877775238;visa"
 			 */
 		?>
-		<pre>
-
-		</pre>
+		<pre><?= $users ?></pre>
 		<!-- Ex 3: Show the complete contents of "loosers.txt".
 			 Place the file contents into an HTML <pre> element to preserve whitespace -->
 
 
 		<?php
-		# }
+		}
 		?>
 
 		<?php
