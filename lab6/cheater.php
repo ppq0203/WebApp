@@ -18,9 +18,6 @@
 			$iserr = ($iserr||$_POST[$key] == ""||!isset($_POST[$key]));
 		}
 
-		$cutname = explode(" ", $_POST["name"]);
-		print_r($cutname);
-
 		if ($iserr){
 		?>
 
@@ -30,9 +27,7 @@
 		<?php
 		# Ex 5 :
 		# Check if the name is composed of alphabets, dash(-), ora single white space.
-		}
-
-		elseif (false) {
+	} elseif (!preg_match('/^[a-z|A-Z| |-]+$/', $_POST["name"])) {
 		?>
 
 			<h1>Sorry</h1>
@@ -42,9 +37,7 @@
 		# Ex 5 :
 		# Check if the credit card number is composed of exactly 16 digits.
 		# Check if the Visa card starts with 4 and MasterCard starts with 5.
-		}
-
-		elseif (!preg_match('/^[4|5][0-9]{15}$/', $_POST["cardnum"], $matches)) {
+		} elseif (!preg_match('/^[4|5][0-9]{15}$/', $_POST["cardnum"], $matches)) {
 		?>
 
 			<h1>Sorry</h1>
