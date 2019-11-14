@@ -1,0 +1,65 @@
+CREATE DATABASE college;
+USE database;
+
+CREATE TABLE student (
+`student_id` int(11) NOT NULL,
+`name` varchar(10) NOT NULL,
+`year` int(11) NOT NULL default '1',
+`dept_no` int(11) NOT NULL,
+`major` varchar(20) ,
+PRIMARY KEY  (`student_id`)
+);
+
+CREATE TABLE department(
+`dept_no` int(11) NOT NULL,
+`dept_name` varchar(40) NOT NULL,
+`office` varchar(40) NOT NULL,
+`office_tel` varchar(13),
+PRIMARY KEY  (`dept_name`)
+);
+
+ALTER TABLE student CHANGE major major varchar(30);
+
+ALTER TABLE student ADD gender boolean;
+
+ALTER TABLE student DROP gender;
+
+INSERT INTO student VALUES (20070002, 'Jane Smith', 3, 4, 'Business Administration');
+INSERT INTO student VALUES (20060001, 'Ashley Jackson', 4, 4, 'Business Administration');
+INSERT INTO student VALUES (20030001, 'Liam Johnson', 4, 2, 'Electrical Engineering');
+INSERT INTO student VALUES (20040003, 'Jacob Lee', 3, 2, 'Electrical Engineering');
+INSERT INTO student VALUES (20060002, 'Noah Kim', 3, 1, 'Computer Science');
+INSERT INTO student VALUES (20100002, 'Ava Lim', 3, 4, 'Business Administration');
+INSERT INTO student VALUES (20110001, 'Emma Watson', 2, 1, 'Computer Science');
+INSERT INTO student VALUES (20080003, 'Lisa Maria', 4, 3, 'Law');
+INSERT INTO student VALUES (20040002, 'Jacob William', 4, 5, 'Law');
+INSERT INTO student VALUES (20070001, 'Emily Rose', 4, 4, 'Business Administration');
+
+INSERT INTO department VALUES (1,'Computer Science', 'Science Building 101', '02-3290-0123');
+INSERT INTO department VALUES (2,'Electrical Engineering', 'Engineering Building 401', '02-3290-2345');
+INSERT INTO department VALUES (3,'Law', 'Law Building 201', '02-3290-7896');
+INSERT INTO department VALUES (4,'Business Administration', 'Business Building 104', '02-3290-1112');
+INSERT INTO department VALUES (5,'English Language and Literature', 'Language Building 303', '02-3290-4412');
+
+UPDATE department 
+SET dept_name = 'Electrical and Electronics Engineering'
+WHERE dept_name = 'Electrical Engineering';
+INSERT INTO department VALUES (6,'Special Education', 'Education Building 403', '02-3290-2347');
+
+UPDATE student
+SET dept_no = 6
+WHERE name = 'Emma Watson';
+
+DELETE FROM student
+WHERE name = 'Jason Mraz' or name = 'John Smith';
+
+SELECT * FROM student
+WHERE major = "Computer Science";
+
+SELECT student_id, year, major FROM student;
+
+SELECT * FROM student
+WHERE year = 3;
+
+SELECT * FROM student
+WHERE year = 1 or year = 2;
