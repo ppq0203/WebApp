@@ -5,7 +5,7 @@
 		$uri = 'http://';
 	}
 	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/lab6/gradestore.html');
+	header('Location: '.$uri.'/lab7/sql.php');
 	exit;
 ?>
 Something is wrong with the XAMPP installation :-(

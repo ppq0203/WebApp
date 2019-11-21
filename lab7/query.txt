@@ -35,7 +35,7 @@ INSERT INTO student VALUES (20080003, 'Lisa Maria', 4, 3, 'Law');
 INSERT INTO student VALUES (20040002, 'Jacob William', 4, 5, 'Law');
 INSERT INTO student VALUES (20070001, 'Emily Rose', 4, 4, 'Business Administration');
 
-INSERT INTO student VALUES (20100001, 'Ethan Hunt', 3, 4, 'Business Administration'); 
+INSERT INTO student VALUES (20100001, 'Ethan Hunt', 3, 4, 'Business Administration');
 INSERT INTO student VALUES (20110002, 'Jason Mraz', 2, 1, 'Electrical Engineering');
 INSERT INTO student VALUES (20030002, 'John Smith', 5, 1, 'Computer Science');
 INSERT INTO student VALUES (20070003, 'Sophia Park', 4, 3, 'Law');
@@ -49,7 +49,7 @@ INSERT INTO department VALUES (3,'Law', 'Law Building 201', '02-3290-7896');
 INSERT INTO department VALUES (4,'Business Administration', 'Business Building 104', '02-3290-1112');
 INSERT INTO department VALUES (5,'English Language and Literature', 'Language Building 303', '02-3290-4412');
 
-UPDATE department 
+UPDATE department
 SET dept_name = 'Electrical and Electronics Engineering'
 WHERE dept_name = 'Electrical Engineering';
 INSERT INTO department VALUES (6,'Special Education', 'Education Building 403', '02-3290-2347');
@@ -90,5 +90,65 @@ WHERE student_id LIKE '2007%'
 LIMIT 2;
 
 
+SELECT role FROM roles
+WHERE movie_id = (
+SELECT id FROM movies
+WHERE name = "Pi"
+);
+
+SELECT role, first_name, last_name, gender FROM roles
+JOIN actors ON actor_id = id
+WHERE movie_id = (
+SELECT id FROM movies
+WHERE name = "Pi"
+);
+
+SELECT first_name, last_name FROM actors
+WHERE id IN
+(SELECT actor_id, COUNT(actor_id) FROM roles
+ WHERE actor_id IN
+(SELECT actor_id FROM roles
+WHERE movie_id = (SELECT id FROM
+movies WHERE name = "Kill Bill: Vol. 1")
+OR movie_id = (SELECT id FROM
+movies WHERE name = "Kill Bill: Vol. 2"))
+GROUP BY actor_id
+HAVING COUNT(actor_id) > 1
+);
+
+SELECT * FROM roles
+JOIN actors ON actor_id = id
+GROUP BY actor_id
+ORDER BY COUNT(*) DESC
+LIMIT 7;
 
 
+?????
+
+SELECT * FROM directors
+WHERE id =
+(SELECT director_id FROM movies_genres a
+JOIN movies_directors b ON a.movie_id = b.movie_id
+WHERE genre = "Thriller"
+GROUP BY director_id
+ORDER BY COUNT(*) DESC
+LIMIT 1);
+
+------------------------------------------
+
+SELECT grade FROM grades
+WHERE course_id =
+(SELECT id FROM courses
+WHERE name = "Computer Science 143");
+
+SELECT name, grade FROM grades
+JOIN students ON student_id = id
+WHERE course_id =
+(SELECT id FROM courses
+WHERE name = "Computer Science 143")
+AND grade <= "B+";
+
+SELECT name FROM grades
+JOIN courses c ON course_id = id
+GROUP BY course_id
+HAVING COUNT(course_id) > 1
