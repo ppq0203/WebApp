@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pimp My Text!</title>
+		<link href="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/labResources/pimpmytext.css" type="text/css" rel="stylesheet" />
+    <link href="pimp.css" type="text/css" rel="stylesheet" />
+		<script src="pimpmytext1.js" type="text/javascript"></script>
+		<!-- This is a widely-used JavaScript library named Prototype that has
+			 many useful functions, including the $() function, which we need.
+			 Please don't remove this link or change its URL; leave it as-is!
+		-->
+		<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js" type="text/javascript"></script>
+
+		<!-- link to your script file here -->
+
+	</head>
+
+	<body>
+		<h1>Pimp My Text</h1>
+    <div>
+      <fieldset>
+          <legend>Text</legend>
+          <textarea id="text" name="text" rows="4" cols="30">Here is the sample.
+Let snoopify button!</textarea>
+      </fieldset>
+      <fieldset>
+          <legend>Pimp It</legend>
+          <button onclick="helloWorld()">Bigger Pimpin'!</button>
+					<br/>
+					<input type="checkbox" onchange="bilingButton(this)"/> Bling
+					<br/>
+					<button onclick="snoopify()">Snoopify</button>
+      </fieldset>
+
+		<!-- Your UI controls go here -->
+    </div>
+	</body>
+</html>

@@ -1,16 +1,24 @@
+
 <!DOCTYPE html>
-	<html>
+<html>
 	<head>
-		<title>LAB07</title>
+		<title>Pimp My Text!</title>
+		<link href="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/labResources/pimpmytext.css" type="text/css" rel="stylesheet" />
+
+		<!-- This is a widely-used JavaScript library named Prototype that has 
+			 many useful functions, including the $() function, which we need.
+			 Please don't remove this link or change its URL; leave it as-is!
+		-->
+		<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js" type="text/javascript"></script>
+
+		<!-- link to your script file here -->
+
 	</head>
+
 	<body>
-	<?php
-		$db = new PDO("mysql:dbname=imdb_small;host=localhost", "root", "");
-		$rows = $db->query("SELECT * FROM actors WHERE last_name LIKE 'Del%'");
-		foreach ($rows as $row) { ?>
-			<li> First name: <?= $row["first_name"] ?>,Last name:  <?= $row["last_name"]  ?> </li>
-	<?php
-		}
-	?>
+		<h1>Pimp My Text</h1>
+
+		<!-- Your UI controls go here -->
+
 	</body>
 </html>
