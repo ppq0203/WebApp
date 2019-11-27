@@ -4,8 +4,8 @@
 	<head>
 		<title>Pimp My Text!</title>
 		<link href="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/labResources/pimpmytext.css" type="text/css" rel="stylesheet" />
-    <link href="pimp.css" type="text/css" rel="stylesheet" />
-		<script src="pimpmytext1.js" type="text/javascript"></script>
+    <!-- <link href="pimp.css" type="text/css" rel="stylesheet" /> -->
+		<script src="pimpmytext.js" type="text/javascript"></script>
 		<!-- This is a widely-used JavaScript library named Prototype that has
 			 many useful functions, including the $() function, which we need.
 			 Please don't remove this link or change its URL; leave it as-is!
@@ -26,11 +26,13 @@ Let snoopify button!</textarea>
       </fieldset>
       <fieldset>
           <legend>Pimp It</legend>
-          <button onclick="helloWorld()">Bigger Pimpin'!</button>
+          <button id="biggerPimpin">Bigger Pimpin'!</button>
 					<br/>
-					<input type="checkbox" onchange="bilingButton(this)"/> Bling
+					<input id="biling" type="checkbox"/> Bling
 					<br/>
-					<button onclick="snoopify()">Snoopify</button>
+					<button id="snoopify">Snoopify</button>
+					<button id="pigLatin">Pig Latin</button>
+					<button id="malkovitch">Malkovitch</button>
       </fieldset>
 
 		<!-- Your UI controls go here -->
