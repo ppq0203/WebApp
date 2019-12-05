@@ -33,11 +33,21 @@ header("Content-type: application/json");
 
 print "{\n  \"books\": [\n";
 
+
+$lines = file($BOOKS_FILE);
+$arr_list = array();
+for ($i = 0; $i < count($lines); $i++) {
+	list($title, $author, $book_category, $year, $price) = explode("|", trim($lines[$i]));
+	if ($book_category == $category) {
+		array_push($arr_list ,"{\"category\" : \"$category\", \"title\" : \"$title\", \"author\" : \"$author\", \"year\" : $year, \"price\" : $price }");		
+	}
+}
+print implode(",\n", $arr_list);
 // write a code to : 
 // 1. read the "books.txt"
 // 2. search all the books that matches the given category 
 // 3. generate the result in JSON data format 
 
-print "  ]\n}\n";
+print "\n]\n}\n";
 
 ?>

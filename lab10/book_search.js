@@ -7,6 +7,10 @@ window.onload = function() {
     	    //construct a Prototype Ajax.request object
     }
     $("b_json").onclick=function(){
+		new Ajax.Request("books_json.php?category=" + getCheckedRadio($$("div#category label input")), {
+			method: "get",
+			onSuccess : showBooks_JSON
+		});
     	    //construct a Prototype Ajax.request object
     }
 };
@@ -25,8 +29,6 @@ function showBooks_XML(ajax) {
 	var books = ajax.responseXML.getElementsByTagName("book");
 	var booksul = $("books");
 	var booksli = $$("ul#books li");
-	console.log(booksul);
-	console.log(booksli);
 	for(var i =0; i < booksli.length; i++){
 		booksul.removeChild(booksli[i]);
 	}
@@ -51,6 +53,18 @@ function showBooks_XML(ajax) {
 
 function showBooks_JSON(ajax) {
 	alert(ajax.responseText);
+	var data = JSON.parse(ajax.responseText);
+	var booksul = $("books");
+	var booksli = $$("ul#books li");
+	for(var i =0; i < booksli.length; i++){
+		booksul.removeChild(booksli[i]);
+	}
+
+    for (var i = 0; i < data.books.length; i++) {
+        var li = document.createElement("li");
+        li.innerHTML = data.books[i].title + ", by " + data.books[i].author + " (" + data.books[i].year + ")";
+        booksul.appendChild(li);
+    }
 }
 
 function ajaxFailed(ajax, exception) {
